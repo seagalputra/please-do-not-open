@@ -1,6 +1,6 @@
-<nav class="flex bg-slate-800 items-center justify-between px-20 py-4">
+<nav class="flex bg-slate-800 items-center justify-between px-20 py-4 shrink-0">
   <div class="flex">
-    <p class="text-white font-bold">Tech Blog</p>
+    <p class="text-white font-bold text-lg">Tech Blog</p>
   </div>
 
   <div class="flex items-center gap-6">
@@ -32,3 +32,15 @@
     </div>
   </div>
 </nav>
+
+<div class="flex border-b px-20 py-4 shrink-0">
+  <ul class="flex gap-5">
+    <% ['Guide', 'Microsoft Windows', 'Linux', 'Security'].each do |tag| %>
+      <li class="bg-slate-100 rounded-lg px-6 py-3 text-slate-700 hover:bg-slate-200 hover:cursor-pointer transition duration-500 ease-in-out">
+        <a href="#">
+          <%= tag %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
