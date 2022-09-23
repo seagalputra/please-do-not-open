@@ -52,15 +52,28 @@
   <div class="hidden" id="mobile-menu" data-navbar-target="mobileMenu">
     <div class="space-y-1 px-2 pt-2 pb-3">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="<%= relative_url '/' %>" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+      <% selected_menu = 'bg-gray-900 text-white' %>
+      <% default_menu = 'text-slate-800 hover:bg-gray-700 hover:text-white' %>
+      <a href="<%= relative_url '/' %>" class="<%= resource.data.slug == 'index' ? selected_menu : default_menu %> block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
         Home
       </a>
-      <a href="<%= relative_url '/about' %>" class="text-slate-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+      <a href="<%= relative_url '/about' %>" class="<%= resource.data.slug == 'about' ? selected_menu : default_menu %> block px-3 py-2 rounded-md text-base font-medium">
         About
       </a>
-      <a href="<%= relative_url '/posts' %>" class="text-slate-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+      <a href="<%= relative_url '/posts' %>" class="<%= resource.data.slug == 'posts' ? selected_menu : default_menu %> block px-3 py-2 rounded-md text-base font-medium">
         Posts
       </a>
     </div>
   </div>
+
+  <div data-navbar-target="categories" class="flex flex-row gap-3 px-6 pb-2 overflow-x-scroll scrollbar-hide lg:px-20">
+    <% ['Guide', 'Microsoft Windows', 'Tutorial', 'Linux', 'iPhone'].each do |tag| %>
+      <div class="bg-slate-50 w-auto border border-slate-900/10 rounded-full px-4 py-2">
+        <p class="text-sm text-slate-700 whitespace-nowrap">
+          <%= tag %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </nav>
+
