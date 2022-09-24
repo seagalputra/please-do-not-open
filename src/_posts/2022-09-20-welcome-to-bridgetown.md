@@ -1,8 +1,13 @@
 ---
 layout: post
-title:  "Your First Post on Bridgetown"
-date:   2022-09-20 22:10:30 +0700
-categories: updates
+title: "Your First Post on Bridgetown"
+date: 2022-09-20 22:10:30 +0700
+categories: "Guide"
+thumbnail: "https://images.unsplash.com/photo-1663592667905-b12c7bca7263?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2MzkzODI1OQ&ixlib=rb-1.2.1&q=80&w=1080"
+description: |
+  You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. 
+  You can rebuild the site in many different ways, but the most common way is to run `bridgetown serve`, 
+  which launches a web server and auto-regenerates your site when a file is updated.
 ---
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `bridgetown serve`, which launches a web server and auto-regenerates your site when a file is updated.

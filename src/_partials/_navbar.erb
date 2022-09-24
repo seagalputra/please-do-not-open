@@ -1,5 +1,5 @@
-<nav class="flex flex-col backdrop-blur-md shrink-0 fixed w-full border-b border-slate-900/10" data-controller="navbar" data-navbar-hidden-class="hidden">
-  <div class="flex items-center justify-between px-6 lg:px-20 py-4">
+<nav class="backdrop-blur-md shrink-0 fixed w-full border-b border-slate-900/10 z-10" data-controller="navbar" data-navbar-hidden-class="hidden">
+  <div class="flex items-center justify-between px-6 py-4 lg:max-w-[1230px] lg:mx-auto">
     <button class="flex lg:hidden" data-action="click->navbar#openMobileMenu">
       <svg data-navbar-target="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800 hidden">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -13,8 +13,8 @@
       <p class="text-slate-800 font-bold text-lg">Tech Blog</p>
     </div>
 
-    <div class="hidden items-center gap-6 lg:flex">
-      <ul class="flex gap-5">
+    <div class="hidden items-center gap-8 lg:flex">
+      <ul class="flex gap-6">
         <li>
           <a href="<%= relative_url '/' %>" class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out">
             Home
@@ -25,21 +25,9 @@
             About
           </a>
         </li>
-        <li>
-          <a href="<%= relative_url '/posts' %>" class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out">
-            Posts
-          </a>
-        </li>
       </ul>
 
-      <div class="hidden items-center lg:flex">
-        <div class="bg-gray-100 pl-3 py-2 rounded-l-md">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-        </div>
-        <input type="text" placeholder="Search articles..." class="border-0 rounded-r-md bg-gray-100">
-      </div>
+      <%= render 'searchbar' %>
     </div>
 
     <button class="flex lg:hidden">
@@ -60,13 +48,10 @@
       <a href="<%= relative_url '/about' %>" class="<%= resource.data.slug == 'about' ? selected_menu : default_menu %> block px-3 py-2 rounded-md text-base font-medium">
         About
       </a>
-      <a href="<%= relative_url '/posts' %>" class="<%= resource.data.slug == 'posts' ? selected_menu : default_menu %> block px-3 py-2 rounded-md text-base font-medium">
-        Posts
-      </a>
     </div>
   </div>
 
-  <div data-navbar-target="categories" class="flex flex-row gap-3 px-6 pb-2 overflow-x-scroll scrollbar-hide lg:px-20">
+  <div data-navbar-target="categories" class="flex flex-row gap-3 px-6 pb-2 overflow-x-scroll scrollbar-hide lg:max-w-[1230px] lg:mx-auto">
     <% ['Guide', 'Microsoft Windows', 'Tutorial', 'Linux', 'iPhone'].each do |tag| %>
       <div class="bg-slate-50 w-auto border border-slate-900/10 rounded-full px-4 py-2">
         <p class="text-sm text-slate-700 whitespace-nowrap">
