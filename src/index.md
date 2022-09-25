@@ -1,6 +1,10 @@
----
-layout: default
----
+```ruby
+require 'nokogiri'
+
+{
+  layout: 'default'
+}
+```
 
 <div data-navbar-target="categories" class="flex flex-row gap-3 px-4 sm:px-6 lg:px-0 overflow-x-scroll scrollbar-hide max-w-screen-lg mx-auto w-full mt-[96px]">
   <% ['Guide', 'Microsoft Windows', 'Tutorial', 'Linux', 'iPhone'].each do |tag| %>
@@ -31,7 +35,7 @@ layout: default
               <%= date_to_string post.data.date, 'ordinal', 'US' %>
             </p>
             <p class="hidden lg:block lg:line-clamp-3 text-sm prose mt-2 text-slate-600">
-              <%= post.data.description %>
+              <%= Nokogiri::HTML(post.content.split("\n").first).text %>
             </p>
             <a href="<%= post.relative_url %>" class="hidden lg:block text-blue-500 font-semibold underline text-md hover:text-blue-700">Read more...</a>
           </div>
