@@ -2,10 +2,30 @@
 layout: default
 ---
 
-<article class="prose prose-lg prose-slate w-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-0 py-6 mt-[68px]">
-  <h1 class="font-bold text-2xl mb-4">
-    <%= resource.data.title %>
-  </h1>
-  
-  <%= yield %>
-</article>
+<main class="w-full max-w-screen-lg mx-auto py-8 px-4 sm:px-6 lg:px-0 lg:flex mt-[68px]">
+  <article class="prose prose-lg prose-slate w-full lg:pr-9">
+    <h1 class="font-bold text-2xl lg:text-3xl mb-2">
+      <%= resource.data.title %>
+    </h1>
+    <p class="text-xs lg:text-sm m-0">
+      <%= date_to_string resource.data.date, 'ordinal', 'US' %>
+    </p>
+    <img class="object-cover object-center w-full rounded-xl max-h-96" src="<%= resource.data.thumbnail %>" alt="<%= resource.data.title %> thumbnail">
+    
+    <%= yield %>
+  </article>
+
+  <aside class="hidden lg:flex lg:flex-col lg:basis-3/12 lg:mt-2 gap-6">
+    <h1 class="font-bold text-xl text-slate-800">Similar Posts</h1>
+    <ul class="flex flex-col gap-4">
+      <% collections.posts.resources.take(3).each do |post| %>
+        <li class="flex flex-row gap-2">
+          <img class="object-cover w-full rounded-xl max-h-[64px] lg:min-w-[64px] lg:max-w-[64px] lg:min-h-[64px]" src="<%= post.data.thumbnail %>" alt="<%= post.data.title %> thumbnail">
+          <a href="<%= post.relative_url %>" class="font-bold text-sm">
+            <%= post.data.title %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+</main>
