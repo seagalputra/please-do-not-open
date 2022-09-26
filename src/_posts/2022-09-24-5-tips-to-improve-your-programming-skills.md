@@ -4,12 +4,6 @@ title: "5 Tips to Improve Your Programming Skills"
 date: 2022-09-24 19:41:00 +0700
 categories: "Programming"
 thumbnail: "https://images.unsplash.com/photo-1661879392883-30d306d70ad8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NDAyMzI4Ng&ixlib=rb-1.2.1&q=80&w=1080"
-description: |
-  Suspendisse at iaculis nisi. Donec gravida nisl quis tristique malesuada.
-  Morbi quam leo, ullamcorper ac ipsum vitae, congue iaculis purus.
-  Aenean posuere ac justo non commodo. Praesent volutpat efficitur ipsum.
-  Maecenas at lorem ut velit fringilla tristique.
-  Phasellus vehicula, lorem vel iaculis pulvinar, elit ante laoreet mauris, eu mattis dui lorem et mauris.
 ---
 
 Suspendisse at iaculis nisi. Donec gravida nisl quis tristique malesuada. Morbi quam leo, ullamcorper ac ipsum vitae, congue iaculis purus. Aenean posuere ac justo non commodo. Praesent volutpat efficitur ipsum. Maecenas at lorem ut velit fringilla tristique. Phasellus vehicula, lorem vel iaculis pulvinar, elit ante laoreet mauris, eu mattis dui lorem et mauris.
