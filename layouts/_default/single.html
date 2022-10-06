@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <main class="w-full max-w-screen-lg mx-auto py-8 px-4 sm:px-6 lg:px-0 lg:flex mt-[68px]">
+    <article class="prose prose-lg lg:prose-xl prose-slate w-full">
+      <h1 class="font-bold text-2xl lg:text-3xl mb-4 font-serif">
+        {{ .Title }}
+      </h1>
+      <div class="flex flex-row items-center gap-3 not-prose">
+        <div class="flex items-center gap-2 p-0">
+          <!-- TODO: change author avatar -->
+          <img src="{{ .Site.Params.authorAvatar }}" alt="Author photo" class="rounded-full w-[28px] h-[28px]">
+          <p class="text-xs lg:text-sm font-medium text-[#3D3D3D]">
+            {{ .Site.Params.authorName }}
+          </p>
+        </div>
+        <p class="text-xs lg:text-sm m-0 font-medium text-gray-400">
+          {{ .Date.Format "Mon, Jan 2, 2006" }}
+        </p>
+      </div>
+  
+      {{ partial "socials.html" . }}
+  
+      <img class="object-cover object-center w-full rounded-xl max-h-96" src="{{ .Params.thumbnail }}" alt="{{ .Title }} thumbnail">
+      
+      {{ .Content }}
+      {{ partial "socials.html" . }}
+    </article>
+  
+    <aside class="hidden lg:flex lg:flex-col lg:mt-2 gap-6 lg:pl-9">
+      <h1 class="font-bold text-xl text-slate-800">Similar Posts</h1>
+      <ul class="flex flex-col gap-4">
+        {{ range $index, $page := .Site.RegularPages }}
+          {{ if lt $index 3 }}
+            <li class="flex flex-row gap-2">
+              <img class="object-cover w-full rounded-xl max-h-[64px] lg:min-w-[64px] lg:max-w-[64px] lg:min-h-[64px]" src="{{ $page.Params.thumbnail }}" alt="{{ $page.Title }} thumbnail">
+              <a href="{{ $page.Permalink }}" class="font-bold text-sm">
+                {{ $page.Title }}
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </aside>
+  </main>
+{{ end }}

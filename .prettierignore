@@ -1,2 +1,4 @@
 # ignore all markdown files
 *.md
+
+layouts/**/*.html
