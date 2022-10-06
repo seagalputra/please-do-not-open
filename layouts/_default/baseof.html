@@ -12,6 +12,21 @@
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" />
   {{ end }}
 
+  {{ $defines := dict }}
+
+  {{ $minify := hugo.IsProduction }}
+  {{ $uglify := hugo.IsProduction }}
+
+  {{ if hugo.IsProduction }}
+    {{ $defines = dict "process.env.NODE_ENV" `"production"` }}
+  {{ else }}
+    {{ $defines = dict "process.env.NODE_ENV" `"development"` }}
+  {{ end }}
+
+  {{ $opts := dict "JSXFactory" "h" "defines" $defines "minify" $minify "uglify" $uglify }}
+  {{- $transpiled := resources.Get "js/index.js" | babel | js.Build $opts -}}
+  <script type="text/javascript" src="{{ $transpiled.RelPermalink }}" defer></script>
+
   {{ block "head" . }}
   {{ end }}
 </head>
