@@ -1,3 +1,5 @@
-const sum = (a, b) => a + b
+import Alpine from 'alpinejs'
 
-console.log(sum(1, 2))
+window.Alpine = Alpine
+
+Alpine.start()
