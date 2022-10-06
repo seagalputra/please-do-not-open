@@ -41,12 +41,16 @@
     <aside class="hidden lg:flex lg:flex-col lg:basis-3/12 lg:mt-2 gap-6">
       <h1 class="font-bold text-xl text-slate-800">Popular Posts</h1>
       <ul class="flex flex-col gap-4">
-        <li class="flex flex-row gap-2">
-          <img class="object-cover w-full rounded-xl max-h-[64px] lg:min-w-[64px] lg:max-w-[64px] lg:min-h-[64px]" src="https://source.unsplash.com/random" alt="My First Article thumbnail">
-          <a href="#" class="font-bold text-sm">
-            My First Article
-          </a>
-        </li>
+        {{ range $index, $page := .Pages }}
+          {{ if lt $index 3 }}
+            <li class="flex flex-row gap-2">
+              <img class="object-cover w-full rounded-xl max-h-[64px] lg:min-w-[64px] lg:max-w-[64px] lg:min-h-[64px]" src="{{ $page.Params.thumbnail }}" alt="{{ $page.Title }} thumbnail">
+              <a href="{{ $page.Permalink }}" class="font-bold text-sm">
+                {{ $page.Title }}
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
       </ul>
     </aside>
   </main>
