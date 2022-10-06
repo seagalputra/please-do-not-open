@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ $styles := resources.Get "css/main.css" | resources.PostCSS }}
+
+  {{ if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ else }}
+  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" />
+  {{ end }}
+
+  {{ $defines := dict }}
+
+  {{ $minify := hugo.IsProduction }}
+  {{ $uglify := hugo.IsProduction }}
+
+  {{ if hugo.IsProduction }}
+    {{ $defines = dict "process.env.NODE_ENV" `"production"` }}
+  {{ else }}
+    {{ $defines = dict "process.env.NODE_ENV" `"development"` }}
+  {{ end }}
+
+  {{ $opts := dict "JSXFactory" "h" "defines" $defines "minify" $minify "uglify" $uglify }}
+  {{- $transpiled := resources.Get "js/index.js" | babel | js.Build $opts -}}
+  <script type="text/javascript" src="{{ $transpiled.RelPermalink }}" defer></script>
+
+  {{ block "head" . }}
+  {{ end }}
+</head>
+<body class="flex flex-col min-h-screen break-words">
+  {{ partial "navbar.html" . }}
+
+  {{ block "main" . }}
+  {{ end }}
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

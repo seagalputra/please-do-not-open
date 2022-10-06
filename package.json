@@ -1,29 +1,26 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "esbuild": "node esbuild.config.js --minify",
-    "esbuild-dev": "node esbuild.config.js --watch"
-  },
+  "main": "index.js",
+  "repository": "git@github.com:seagalputra/please-do-not-open.git",
+  "author": "seagalputra <seagalputra@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
-    "cypress": "^10.8.0",
-    "esbuild": "^0.14.39",
-    "glob": "^8.0.1",
-    "postcss": "^8.4.12",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.1.0",
-    "postcss-load-config": "^3.1.4",
-    "postcss-preset-env": "^7.4.3",
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.17",
+    "postcss-cli": "^10.0.0",
     "prettier": "^2.7.1",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss": "^3.1.8"
   },
   "dependencies": {
-    "@hotwired/stimulus": "^3.1.0",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "alpinejs": "^3.10.3"
   }
 }
