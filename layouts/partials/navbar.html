@@ -1,11 +1,40 @@
-<nav class="backdrop-blur-md shrink-0 fixed w-full border-b border-slate-900/10 z-10" x-data="{ open: false }">
-  <div class="flex items-center justify-between py-4 px-4 sm:px-6 lg:px-0 max-w-screen-lg mx-auto">
-    <button class="flex lg:hidden" x-on:click="open = !open">
-      <svg data-navbar-target="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800 hidden">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+<nav
+  class="backdrop-blur-md shrink-0 fixed w-full border-b border-slate-900/10 z-10"
+  x-data="{ isOpenMenu: false, isShowSearchBar: false }"
+>
+  <div
+    class="flex items-center justify-between py-4 px-4 sm:px-6 lg:px-0 max-w-screen-lg mx-auto"
+  >
+    <button class="flex lg:hidden" @click="isOpenMenu = !isOpenMenu">
+      <svg
+        data-navbar-target="closeIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 text-slate-800 hidden"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
       </svg>
-      <svg data-navbar-target="openIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+      <svg
+        data-navbar-target="openIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 text-slate-800"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+        />
       </svg>
     </button>
 
@@ -16,12 +45,18 @@
     <div class="hidden items-center gap-8 lg:flex">
       <ul class="flex gap-6">
         <li>
-          <a href="/" class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out">
+          <a
+            href="/"
+            class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out"
+          >
             Home
           </a>
         </li>
         <li>
-          <a href="/about" class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out">
+          <a
+            href="/about"
+            class="text-slate-800 hover:text-sky-300 transition duration-500 ease-in-out"
+          >
             About
           </a>
         </li>
@@ -30,22 +65,46 @@
       {{ partial "searchbar.html" . }}
     </div>
 
-    <button class="flex lg:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+    <button class="flex lg:hidden" @click="isShowSearchBar = !isShowSearchBar">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 text-slate-800"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+        />
       </svg>
     </button>
   </div>
 
-  <div id="mobile-menu" x-show="open">
+  <div id="mobile-menu" x-show="isOpenMenu">
     <div class="space-y-1 px-2 pt-2 pb-3">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+      <a
+        href="/"
+        class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+        aria-current="page"
+      >
         Home
       </a>
-      <a href="/about" class="text-slate-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+      <a
+        href="/about"
+        class="text-slate-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+      >
         About
       </a>
+    </div>
+  </div>
+
+  <div id="search-bar" x-show="isShowSearchBar">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      {{ partial "searchbar.html" . }}
     </div>
   </div>
 </nav>

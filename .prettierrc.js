@@ -3,5 +3,12 @@ module.exports = {
   tabWidth: 2,
   semi: false,
   singleQuote: true,
-  embeddedLanguageFormatting: 'off',
+  overrides: [
+    {
+      files: ['*.html'],
+      options: {
+        parser: 'go-template',
+      },
+    },
+  ],
 }
