@@ -5,6 +5,9 @@ title = 'Tech Blog'
 [params]
   authorName = 'seagalputra'
   authorAvatar = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdAlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+  twitter = 'https://twitter.com'
+  facebook = 'https://facebook.com'
+  instagram = 'https://instagram.com'
 
 [security]
   [security.exec]
