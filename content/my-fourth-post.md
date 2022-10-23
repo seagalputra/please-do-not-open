@@ -19,3 +19,5 @@ Ut eu lectus in urna rutrum volutpat pretium mollis justo. Aenean et elit ac est
 Proin molestie faucibus ex, non gravida felis semper eget. Phasellus faucibus, metus non interdum euismod, leo sapien pellentesque nulla, sit amet tempor justo ligula ut justo. Maecenas eget mattis sem. Praesent placerat vestibulum ultricies. Vestibulum molestie molestie elit eu luctus. Integer luctus consequat urna, quis euismod massa molestie id. Etiam quis enim ut libero ornare mattis. Pellentesque gravida sapien id interdum fringilla. Donec consectetur molestie leo, sit amet posuere tortor blandit sed.
 
 Nam placerat quis leo a viverra. Phasellus quis rhoncus augue, vel ullamcorper urna. In luctus sem dui, nec pretium nisl ultrices quis. Curabitur vestibulum ullamcorper sem sed tincidunt. Nam ut posuere sapien, ac varius ipsum. Sed et porta neque. Ut interdum lacus sed diam porta, id dapibus felis cursus. Nunc interdum nibh sit amet orci venenatis fringilla.
+
+{{< chat tech-blog-comments >}}
